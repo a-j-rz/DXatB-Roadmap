@@ -1,5 +1,5 @@
 // roadmap.js
-// Digital Experience @ Baringa – Blob + Logo Cluster Roadmap
+// Digital Experience @ B – Blob + Logo Cluster Roadmap
 
 (function () {
   // ------------------------------------------------------------

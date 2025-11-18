@@ -1,0 +1,186 @@
+/* roadmap.css */
+/* Base layout */
+:root {
+  --purple:       #7A5FFF;   /* blob fill */
+  --green:        #63B32E;
+  --lightblue:    #4DB7E3;
+  --deepblue:     #1C4E80;
+
+  /* darker label colours */
+  --purple-dark:     #4B3AB5;
+  --green-dark:      #3E7A1E;
+  --lightblue-dark:  #1C6A91;
+  --deepblue-dark:   #0F3555;
+
+  /* Theme badge colours */
+  --theme-foundations:   #4B3AB5; /* deep purple */
+  --theme-integrations:  #1C6A91; /* deep blue-teal */
+  --theme-automations:   #3E7A1E; /* deep green */
+  
+  --theme-foundations-dark:   #3A2D91; 
+  --theme-integrations-dark:  #104B67;
+  --theme-automations-dark:   #285516;
+}
+
+#viz {
+  width: 100%;
+  height: 100%;
+  min-height: 750px;
+  background: #ffffff;
+  position: relative;
+}
+.arcs {
+  pointer-events: none;
+  z-index: 0;  /* if absolute positioned, but usually not needed */
+}
+/* ============================================================
+   INTRO ANIMATION — BLOBS
+   ============================================================ */
+
+/* Initial state */
+.blob-intro {
+  opacity: 0;
+  transform: scale(0.94);
+  transform-origin: center center;
+  transition:
+    opacity 0.9s ease-out,
+    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Activated state — JS adds .blob-intro-done once */
+.blob-intro.blob-intro-done {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ============================================================ */
+
+#viz svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Theme label */
+.theme-label {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  fill: #ffffff;
+}
+
+.theme-motif polygon {
+  shape-rendering: geometricPrecision;
+}
+
+.theme-pill {
+  fill-opacity: 1;
+}
+
+.theme-big-label {
+  fill: #111;
+  font-family: Inter, Arial, sans-serif;
+  pointer-events: none;
+}
+
+.theme-big-triangle {
+  transition: opacity 0.3s ease;
+}
+
+.theme-motif polygon {
+  transition: opacity 0.3s ease;
+}
+
+.theme-fy {
+  fill: #111;
+}
+
+.theme-name {
+  fill: #222;
+  opacity: 0.9;
+}
+
+.theme-quarter {
+  fill: #111;
+}
+
+/* Quarter label (top-left area) */
+#quarterLabel {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  transition: opacity 0.2s ease;
+  display: none !important;
+}
+
+#quarterLabel.fading {
+  opacity: 0;
+}
+
+/* Domain blobs */
+.domain .blob {
+  transition: fill-opacity 0.3s ease;
+}
+
+.domain.strong .blob {
+  fill-opacity: 0.30;      /* stronger baseline */
+}
+
+.domain.strong .logo {
+  opacity: 1;              /* logos full strength */
+}
+
+/* NEW — subdued state (revealMode 2) */
+.domain.subdued .blob {
+  transition: fill-opacity 0.3s ease;
+  filter: blur(1px) opacity(0.12);
+}
+
+.domain.subdued .logo {
+  opacity: 0.35;           /* logos fade back */
+}
+
+.domain.active .blob {
+  fill-opacity: 0.28;
+  /* Soft glow; relies on browser-support for filter */
+  filter: drop-shadow(0 0 16px rgba(0, 0, 0, 0.18));
+}
+
+/* Domain labels */
+.domain .domain-label {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  fill: #222222;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7);
+}
+
+/* Milestones inside blobs */
+.domain .milestones {
+  opacity: 1;
+}
+
+.milestone-line {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-size: 25px;
+  font-weight: 500;
+  fill: #222222;
+}
+
+/* Logo clusters */
+.domain .logo-cluster .logo {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.domain.active .logo-cluster .logo {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Optional: make the whole thing look a little softer on big canvases */
+.root {
+  transform-origin: center center;
+}

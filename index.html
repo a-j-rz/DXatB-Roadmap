@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Digital Experience @ Baringa – Roadmap</title>
+    <link rel="stylesheet" href="css/roadmap.css" />
+  </head>
+  <body>
+    <div style="padding: 16px;">
+      <div id="quarterLabel"></div>
+      <div id="viz"></div>
+    </div>
+        <div id="timelineControls" style="
+        display:flex;
+        align-items:center;
+        gap:10px;
+        padding:6px 0;
+        font-family:system-ui;
+        ">
+
+        <button id="playBtn" style="
+            padding:4px 10px;
+            font-size:12px;
+            cursor:pointer;
+        ">▶ Advance</button>
+
+        <input id="scrub" type="range" min="0" max="0" value="0" step="1" style="
+            width:180px;
+            margin:0;
+        " />
+    <div id="keyboardHelp" style="
+    position:absolute;
+    bottom:55px;
+    left:10px;
+    font-family:system-ui, sans-serif;
+    font-size:10px;
+    line-height:1.4;
+    color:#555;
+    opacity:0.7;
+    user-select:none;
+    pointer-events:none;
+  ">
+    <div>[B] — domains</div>
+    <div>[L] — logos</div>
+    <div>[M] — milestones</div>
+  </div>
+</div>
+        </div>
+    <!-- D3 (v7 or similar) -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Your roadmap logic -->
+    <script src="js/roadmap.js"></script>
+  </body>
+</html>

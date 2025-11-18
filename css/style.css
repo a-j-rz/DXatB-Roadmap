@@ -1,0 +1,51 @@
+*{box-sizing:border-box}
+:root{
+  --purple:#6A1B9A;        /* Your Digital Workplace */
+  --green:#00A78E;         /* Baringa Enablement Assists */
+  --lightblue:#00B4EF;     /* Our Data */
+  --deepblue:#1D3C6A;      /* Firm Operations */
+  --bg:#0c0f14;
+  --panel:#111522;
+  --text:#eaeff7;
+  --muted:#9fb0c3;
+  --accent:#ffffff;
+}
+
+html, body { height:100%; margin:0; background:var(--bg); color:var(--text); font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+#app { display:flex; flex-direction:column; height:100%; }
+header { padding:16px 20px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #1e2433; }
+h1 { font-size:18px; margin:0; font-weight:600; color:var(--muted); }
+#quarterLabel { font-size:16px; padding:6px 10px; background:#141a29; border:1px solid #20283b; border-radius:10px; color:#cfe0ff; }
+
+main { display:grid; grid-template-columns: 1fr 360px; gap:16px; padding:16px; height:100%; }
+#viz { background:linear-gradient(180deg, #0c0f14 0%, #0d121c 100%); border:1px solid #1e2433; border-radius:16px; position:relative; overflow:hidden; }
+#milestones { background:var(--panel); border:1px solid #1e2433; border-radius:16px; padding:16px; display:flex; flex-direction:column; }
+#milestones .hint { color:var(--muted); font-size:12px; margin-bottom:8px; }
+#milestoneContent { flex:1; overflow:auto; }
+
+.milestone-group { margin-bottom:16px; padding-bottom:12px; border-bottom:1px dashed #24304a; }
+.milestone-group:last-child { border-bottom:none; }
+.milestone-title { display:flex; align-items:center; gap:8px; font-weight:600; margin:0 0 6px 0; }
+.milestone-title .dot { width:10px; height:10px; border-radius:50%; display:inline-block; }
+.milestone-text { margin:0; color:#dbe7ff; line-height:1.35; }
+
+/* SVG */
+svg { width:100%; height:100%; display:block; }
+.node circle { fill-opacity:0.15; stroke-width:2.5px; }
+.node text { font-size:14px; fill:#eaf2ff; font-weight:600; text-anchor:middle; dominant-baseline:middle; }
+.link { stroke:#8aa1c7; stroke-opacity:0.25; stroke-width:2px; }
+
+/* Active glow */
+.node.active circle {
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.55));
+  stroke: #fff;
+  stroke-opacity: 0.9;
+}
+
+/* Pulse for connection moments */
+@keyframes pulse {
+  0% { stroke-width:2px; stroke-opacity:0.3; }
+  50% { stroke-width:5px; stroke-opacity:0.9; }
+  100% { stroke-width:2px; stroke-opacity:0.3; }
+}
+.link.pulse { animation: pulse 1200ms ease-in-out 1; }

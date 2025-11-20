@@ -86,7 +86,7 @@
       ]
     },
     {
-      key: "Baringa Enablement Assist",
+      key: "BE Assists",
       colorVar: "--green",
       cx: 0.79,
       cy: 0.44,
@@ -296,7 +296,7 @@
           lx = 0;
           ly = 0.1;
           break;
-        case "Baringa Enablement Assist":
+        case "BE Assists":
           lx = 0.05;
           ly = -0.1;
           break;
